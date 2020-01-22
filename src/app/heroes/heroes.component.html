@@ -1,0 +1,29 @@
+<div style="display: flex;" >
+<div>
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes " (click)="boi = hero" >
+   
+    <span class="badge">{{hero.id}}</span> {{hero.name }}
+    
+  </li>
+</ul>
+</div>
+<div >
+  
+<h2>Search Hero </h2>
+<input type="text" [(ngModel)]="searchText">
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes | a :searchText" >
+    
+    <span class="badge">{{hero.id}}</span> {{hero.name }}
+  
+  </li>  
+</ul>
+</div>
+<div>
+<app-editdetails (anEvent)="updateHero($event)" [a]="boi"></app-editdetails>
+</div>
+</div>
+
